@@ -1,13 +1,38 @@
 <iframe width="250" height="90" frameborder="0" scrolling="no" hspace="0"
     src="https://i.tianqi.com/?c=code&a=getcode&id=7&icon=1"></iframe>
 
-
-
-<p>你的IP：<span id="ip"></span></p>
-<p>你的地址：<span id="address"></span></p>
-
-<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
-<script type="text/javascript">
-document.getElementById("ip").innerHTML = returnCitySN["cip"];
-document.getElementById("address").innerHTML = returnCitySN["cname"];
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+/* 鼠标特效：社会主义核心价值观*/
+var a_idx = 0;
+jQuery(document).ready(function($) {
+    $("body").click(function(e) {
+        var a = new Array(
+            "❤富强❤", "❤民主❤", "❤文明❤", "❤和谐❤",
+            "❤自由❤", "❤平等❤", "❤公正❤", "❤法治❤",
+            "❤爱国❤", "❤敬业❤", "❤诚信❤", "❤友善❤"
+        );
+        var $i = $("<span></span>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+            "z-index": 1,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+        });
+        $("body").append($i);
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        },
+        1500,
+        function() {
+            $i.remove();
+        });
+    });
+});
 </script>
