@@ -1,1 +1,13 @@
-hello world
+<iframe width="250" height="90" frameborder="0" scrolling="no" hspace="0"
+    src="https://i.tianqi.com/?c=code&a=getcode&id=7&icon=1"></iframe>
+
+
+
+<p>你的IP：<span id="ip"></span></p>
+<p>你的地址：<span id="address"></span></p>
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">
+document.getElementById("ip").innerHTML = returnCitySN["cip"];
+document.getElementById("address").innerHTML = returnCitySN["cname"];
+</script>
